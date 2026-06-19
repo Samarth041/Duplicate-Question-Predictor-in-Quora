@@ -5,3 +5,7 @@ XGBoost,TF-IDF only,0.7302
 Logistic regression,TFIDF ONLY+Word2vec,0.6713
 Random Forest,TF-IDF only+word2vec,0.7312
 XGBoost,TF-IDF only+word2vec,0.738
+SimpleRnn,Deep Learning Approach,0.7202000021934509
+LSTM,Deep Learning Approach,0.7117999792098999
+BiLSTM,Deep Learning Approach,0.7333999872207642
+Siamese,Dl approach,0.7279000282287598
