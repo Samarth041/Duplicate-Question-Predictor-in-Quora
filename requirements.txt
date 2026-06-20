@@ -1,0 +1,11 @@
+treamlit
+pandas 
+numpy 
+scikit-learn 
+gensim 
+nltk 
+beautifulsoup4 
+fuzzywuzzy 
+python-Levenshtein
+
+tensorflow
