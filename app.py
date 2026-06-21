@@ -1,27 +1,33 @@
+import streamlit as st
 from src.predict import predict_duplicate
 
-def main():
-    print("\n🔍 Duplicate Question Detector (CLI Test)\n")
+#page config
 
-    # Sample inputs
-    q1 = input("Enter Question 1: ")
-    q2 = input("Enter Question 2: ")
+st.set_page_config(page_title="Duplicate Question Detector",page_icon="❓",layout="centered")
 
-    # Prediction
-    result = predict_duplicate(q1, q2)
+#title
+st.title("Duplicate Question Detector ❓")
+st.write("Enter two questions and check whether they are duplicates or not")
 
-    print("\n-----------------------------")
-    print("RESULT:")
-    print("-----------------------------")
+#input boxes
+q1=st.text_area("Question1",placeholder="Enter first question.....")
+q2=st.text_area("Question2",placeholder="Enter second question ......")
 
-    if result["is_duplicate"] == 1:
-        print("❌ DUPLICATE QUESTIONS")
+#prediction button
+
+if st.button("Predict"):
+    if q1.strip()== "" or q2.strip()== "":
+        st.warning("Please enter both questions ")
+
     else:
-        print("✅ NOT DUPLICATE QUESTIONS")
+        probability=predict_duplicate(q1,q2)
 
-    print(f"Probability: {result['probability']:.4f}")
-    print("-----------------------------\n")
+        st.subheader("Prediction ")
 
+        if(probability>=0.5):
+            st.success("Duplicate Question ")
 
-if __name__ == "__main__":
-    main()
+        else:
+            st.error("Different Question , not duplicate")
+
+        st.write(f"**Probabaility:**{probability:.4f}")
